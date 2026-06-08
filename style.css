@@ -6,35 +6,29 @@ color:white;
 font-family:arial;
 }
 
-/* 🔥 MOVING BACKGROUND */
-#bg{
+canvas{
 position:fixed;
 top:0;
 left:0;
-width:100%;
-height:100%;
-z-index:0;
 opacity:0.5;
 }
 
-/* glow overlay */
-#overlayGlow{
+#overlay{
 position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
-background:radial-gradient(circle, rgba(255,0,100,0.15), transparent);
-animation:moveGlow 6s infinite alternate;
+background:radial-gradient(circle,rgba(255,0,100,0.2),transparent);
 z-index:1;
+animation:move 6s infinite alternate;
 }
 
-@keyframes moveGlow{
+@keyframes move{
 0%{transform:translate(0,0);}
-100%{transform:translate(30px,-20px);}
+100%{transform:translate(20px,-20px);}
 }
 
-/* scenes */
 .scene{
 position:absolute;
 width:100%;
@@ -44,7 +38,7 @@ justify-content:center;
 align-items:center;
 flex-direction:column;
 opacity:0;
-transition:1.2s;
+transition:1s;
 z-index:2;
 text-align:center;
 }
@@ -53,71 +47,50 @@ text-align:center;
 opacity:1;
 }
 
-/* text cinematic */
-.glow{
-font-size:30px;
-text-shadow:0 0 20px pink;
+.title{
+font-size:28px;
 animation:pulse 2s infinite;
 }
 
 @keyframes pulse{
 0%{transform:scale(1);}
-50%{transform:scale(1.06);}
+50%{transform:scale(1.05);}
 100%{transform:scale(1);}
 }
 
-.bigText{
-font-size:22px;
-max-width:600px;
-padding:20px;
-line-height:1.6;
-}
-
-/* paper */
 .paper{
-width:380px;
+width:360px;
 height:420px;
 background:rgba(255,255,255,0.08);
-backdrop-filter:blur(12px);
+backdrop-filter:blur(10px);
 padding:20px;
 border-radius:12px;
-animation:paperIn 1s ease;
 }
 
-@keyframes paperIn{
-0%{transform:scale(0.8);opacity:0;}
-100%{transform:scale(1);opacity:1;}
-}
-
-/* surprise */
-.pop{
+.question{
 font-size:24px;
-animation:pop 0.8s ease;
+margin-bottom:20px;
 }
 
-.sub{
-margin-top:10px;
-opacity:0.8;
+.btns{
+display:flex;
+gap:15px;
 }
 
-@keyframes pop{
-0%{transform:scale(0);}
-100%{transform:scale(1);}
-}
-
-/* buttons */
 button{
-margin:10px;
 padding:10px 20px;
 border:none;
 border-radius:10px;
 cursor:pointer;
-background:#ff4d6d;
-color:white;
+font-size:16px;
+transition:0.2s;
 }
 
-/* end */
-.end{
-font-size:28px;
-text-shadow:0 0 20px white;
+button:hover{
+transform:scale(1.05);
+}
+
+#result{
+font-size:26px;
+padding:20px;
 }
