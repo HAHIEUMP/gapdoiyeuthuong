@@ -9,52 +9,54 @@
 <body>
 
 <audio id="music" autoplay loop>
-<source src="music.mp3" type="audio/mp3">
+  <source src="music.mp3" type="audio/mp3">
 </audio>
 
 <canvas id="bg"></canvas>
 
+<div id="overlayGlow"></div>
+
 <div id="app">
 
-<!-- SCENE 1 -->
-<div class="scene active" id="s1">
-<div class="glow">Có một điều anh chưa từng nói hết...</div>
-</div>
+  <!-- SCENE 1 -->
+  <div class="scene active" id="s1">
+    <div class="title glow">Anh có một điều muốn nói với em...</div>
+  </div>
 
-<!-- SCENE 2 -->
-<div class="scene" id="s2">
-<div id="photos"></div>
-</div>
+  <!-- SCENE 2 -->
+  <div class="scene" id="s2">
+    <div class="bigText" id="t2"></div>
+  </div>
 
-<!-- SCENE 3 -->
-<div class="scene" id="s3">
-<div id="text3"></div>
-</div>
+  <!-- SCENE 3 -->
+  <div class="scene" id="s3">
+    <div class="bigText" id="t3"></div>
+  </div>
 
-<!-- SCENE 4 LETTER -->
-<div class="scene" id="s4">
-<div id="paper">
-<div id="letter"></div>
-</div>
-</div>
+  <!-- SCENE 4 LETTER -->
+  <div class="scene" id="s4">
+    <div class="paper">
+      <div id="letter"></div>
+    </div>
+  </div>
 
-<!-- SCENE 5 SURPRISE -->
-<div class="scene" id="s5">
-<div class="pop">Anh làm cái này cho em nè ❤️</div>
-<div id="confetti"></div>
-</div>
+  <!-- SCENE 5 SURPRISE -->
+  <div class="scene" id="s5">
+    <div class="pop">Anh làm cái này cho em nè ❤️</div>
+    <div class="sub">Không phải để xin lỗi… mà để em cười lại</div>
+  </div>
 
-<!-- SCENE 6 CHOICE -->
-<div class="scene" id="s6">
-<div class="question">Em có cười chưa? 😳</div>
-<button id="ok">Cười rồi 😆</button>
-<button id="no">Chưa đâu 😤</button>
-</div>
+  <!-- SCENE 6 QUESTION -->
+  <div class="scene" id="s6">
+    <div class="question">Em có cười chưa? 😊</div>
+    <button id="yes">Cười rồi 😆</button>
+    <button id="no">Chưa đâu 😤</button>
+  </div>
 
-<!-- SCENE 7 END -->
-<div class="scene" id="s7">
-<div id="end"></div>
-</div>
+  <!-- SCENE 7 END -->
+  <div class="scene" id="s7">
+    <div class="end" id="end"></div>
+  </div>
 
 </div>
 
