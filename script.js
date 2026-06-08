@@ -10,44 +10,38 @@ function sleep(ms){return new Promise(r=>setTimeout(r,ms));}
 
 window.addEventListener("click",()=>music.play(),{once:true});
 
-/* 🔥 MOVING BACKGROUND PARTICLES */
+/* background particles */
 const canvas=document.getElementById("bg");
 const ctx=canvas.getContext("2d");
 
 canvas.width=innerWidth;
 canvas.height=innerHeight;
 
-let particles=[];
-
+let p=[];
 for(let i=0;i<120;i++){
-particles.push({
+p.push({
 x:Math.random()*canvas.width,
 y:Math.random()*canvas.height,
-r:Math.random()*2,
-d:Math.random()*1.5
+r:Math.random()*2
 });
 }
 
 function draw(){
 ctx.clearRect(0,0,canvas.width,canvas.height);
 
-ctx.fillStyle="rgba(255,255,255,0.6)";
-
-for(let p of particles){
+ctx.fillStyle="white";
+for(let i of p){
 ctx.beginPath();
-ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.arc(i.x,i.y,i.r,0,Math.PI*2);
 ctx.fill();
 
-p.y+=p.d;
-if(p.y>canvas.height){
-p.y=0;
-p.x=Math.random()*canvas.width;
-}
+i.y+=1;
+if(i.y>canvas.height)i.y=0;
 }
 }
 setInterval(draw,30);
 
-/* TYPE */
+/* typewriter */
 async function type(text,el){
 el.innerHTML="";
 for(let i=0;i<text.length;i++){
@@ -57,55 +51,65 @@ await sleep(25);
 }
 
 /* FLOW */
-async function run(){
+async function start(){
 
 show(0);
-await sleep(2500);
+await sleep(2000);
 
-/* scene 2 */
 show(1);
-await type("Có thể hôm qua em hơi buồn một chút...",document.getElementById("t2"));
+await type("Có thể hôm nay em hơi buồn một chút...",document.getElementById("t2"));
 await sleep(2000);
 
-/* scene 3 */
 show(2);
-await type("Nhưng anh không muốn điều đó làm em buồn lâu hơn...",document.getElementById("t3"));
+await type("Nhưng anh không muốn điều đó kéo dài đâu...",document.getElementById("t3"));
 await sleep(2000);
 
-/* letter */
 show(3);
-
 await type(`
-Anh không cần điều gì lớn lao.
+Anh không muốn em buồn lâu hơn.
 
-Chỉ cần em thấy nhẹ hơn hôm qua một chút.
+Anh chỉ muốn em nhẹ lòng lại.
 
-Nếu anh vô tình làm em buồn,
-thì hôm nay anh muốn bù lại bằng tất cả sự dịu dàng.
+Nếu có điều gì chưa tốt,
+thì anh ở đây để bù lại ❤️
+`,document.getElementById("letter"));
 
-Anh ở đây, không phải để giải thích…
-mà để làm em vui lại ❤️
-`,document.querySelector("#letter"));
-
-await sleep(2500);
-
-/* surprise */
-show(4);
 await sleep(2000);
 
-/* question */
-show(5);
+/* QUESTION */
+show(4);
 
-document.getElementById("yes").onclick=()=>{
-show(6);
-document.getElementById("end").innerText="Vậy là đủ rồi ❤️ Anh chỉ cần em cười thôi.";
+/* CLICK FIXED */
+document.getElementById("yesBtn").onclick=()=>{
+
+show(5);
+document.getElementById("result").innerHTML=`
+✨ Vậy là anh yên tâm rồi ❤️<br><br>
+Anh chỉ cần em cười thôi là đủ rồi.
+`;
+
+for(let i=0;i<60;i++){
+let d=document.createElement("div");
+d.innerHTML="❤️";
+d.style.position="absolute";
+d.style.left=Math.random()*innerWidth+"px";
+d.style.top=Math.random()*innerHeight+"px";
+document.body.appendChild(d);
+setTimeout(()=>d.remove(),2000);
+}
 };
 
-document.getElementById("no").onclick=()=>{
-show(6);
-document.getElementById("end").innerText="Không sao… anh sẽ làm tiếp cho đến khi em cười 😊";
+document.getElementById("noBtn").onclick=()=>{
+
+show(5);
+document.getElementById("result").innerHTML=`
+🌧 Không sao đâu...<br><br>
+Anh sẽ làm tiếp cho đến khi em cười 😊
+`;
+
+document.body.style.background="linear-gradient(#000,#111,#000)";
 };
 
 }
 
-run();
+start();
