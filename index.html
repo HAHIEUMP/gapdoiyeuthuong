@@ -14,23 +14,23 @@
 
 <canvas id="bg"></canvas>
 
-<div id="overlayGlow"></div>
+<div id="overlay"></div>
 
 <div id="app">
 
   <!-- SCENE 1 -->
   <div class="scene active" id="s1">
-    <div class="title glow">Anh có một điều muốn nói với em...</div>
+    <div class="title">Anh có điều muốn nói với em...</div>
   </div>
 
   <!-- SCENE 2 -->
   <div class="scene" id="s2">
-    <div class="bigText" id="t2"></div>
+    <div id="t2"></div>
   </div>
 
   <!-- SCENE 3 -->
   <div class="scene" id="s3">
-    <div class="bigText" id="t3"></div>
+    <div id="t3"></div>
   </div>
 
   <!-- SCENE 4 LETTER -->
@@ -40,22 +40,19 @@
     </div>
   </div>
 
-  <!-- SCENE 5 SURPRISE -->
+  <!-- SCENE 5 QUESTION -->
   <div class="scene" id="s5">
-    <div class="pop">Anh làm cái này cho em nè ❤️</div>
-    <div class="sub">Không phải để xin lỗi… mà để em cười lại</div>
-  </div>
-
-  <!-- SCENE 6 QUESTION -->
-  <div class="scene" id="s6">
     <div class="question">Em có cười chưa? 😊</div>
-    <button id="yes">Cười rồi 😆</button>
-    <button id="no">Chưa đâu 😤</button>
+
+    <div class="btns">
+      <button id="yesBtn">Cười rồi 😆</button>
+      <button id="noBtn">Chưa đâu 😤</button>
+    </div>
   </div>
 
-  <!-- SCENE 7 END -->
-  <div class="scene" id="s7">
-    <div class="end" id="end"></div>
+  <!-- SCENE 6 RESULT -->
+  <div class="scene" id="s6">
+    <div id="result"></div>
   </div>
 
 </div>
