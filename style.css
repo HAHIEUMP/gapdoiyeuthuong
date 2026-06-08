@@ -6,6 +6,35 @@ color:white;
 font-family:arial;
 }
 
+/* 🔥 MOVING BACKGROUND */
+#bg{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:0;
+opacity:0.5;
+}
+
+/* glow overlay */
+#overlayGlow{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:radial-gradient(circle, rgba(255,0,100,0.15), transparent);
+animation:moveGlow 6s infinite alternate;
+z-index:1;
+}
+
+@keyframes moveGlow{
+0%{transform:translate(0,0);}
+100%{transform:translate(30px,-20px);}
+}
+
+/* scenes */
 .scene{
 position:absolute;
 width:100%;
@@ -15,45 +44,60 @@ justify-content:center;
 align-items:center;
 flex-direction:column;
 opacity:0;
-transition:1s;
+transition:1.2s;
+z-index:2;
+text-align:center;
 }
 
 .scene.active{
 opacity:1;
 }
 
+/* text cinematic */
 .glow{
-font-size:28px;
+font-size:30px;
 text-shadow:0 0 20px pink;
 animation:pulse 2s infinite;
 }
 
 @keyframes pulse{
 0%{transform:scale(1);}
-50%{transform:scale(1.05);}
+50%{transform:scale(1.06);}
 100%{transform:scale(1);}
 }
 
-#paper{
-width:360px;
+.bigText{
+font-size:22px;
+max-width:600px;
+padding:20px;
+line-height:1.6;
+}
+
+/* paper */
+.paper{
+width:380px;
 height:420px;
-background:rgba(255,255,255,0.1);
-backdrop-filter:blur(10px);
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(12px);
 padding:20px;
 border-radius:12px;
+animation:paperIn 1s ease;
 }
 
-button{
-margin:10px;
-padding:10px 20px;
-border:none;
-border-radius:10px;
-cursor:pointer;
+@keyframes paperIn{
+0%{transform:scale(0.8);opacity:0;}
+100%{transform:scale(1);opacity:1;}
 }
 
+/* surprise */
 .pop{
-font-size:22px;
-animation:pop 1s ease;
+font-size:24px;
+animation:pop 0.8s ease;
+}
+
+.sub{
+margin-top:10px;
+opacity:0.8;
 }
 
 @keyframes pop{
@@ -61,7 +105,19 @@ animation:pop 1s ease;
 100%{transform:scale(1);}
 }
 
-#end{
+/* buttons */
+button{
+margin:10px;
+padding:10px 20px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+background:#ff4d6d;
+color:white;
+}
+
+/* end */
+.end{
 font-size:28px;
-text-align:center;
+text-shadow:0 0 20px white;
 }
